@@ -37,7 +37,7 @@ public class Arena extends JPanel {
     public Arena(){
             setBackground(Color.blue);
         for(int i =0; i<20; i++){
-            balls.add(new Ball(0, 100, 53, 32,((int)Math.random()*20), Color.RED));
+            balls.add(new Ball(0, 100, 53, ((int)(Math.random()*20)), ((int)Math.random()*20), Color.RED));
         }
     }
 
