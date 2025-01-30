@@ -36,16 +36,21 @@ public class Arena extends JPanel {
 
     public Arena(){
             setBackground(Color.blue);
-        for(int i =0; i<20; i++){
-            balls.add(new Ball(0, 100, 53, ((int)(Math.random()*20)), ((int)Math.random()*20), Color.RED));
+        for(int i =0; i<100; i++){
+            balls.add(new Ball());
+            //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED));
+
         }
+
     }
 
 
     @Override
     public void paintComponent(Graphics g){
-        pony.make(g,this.getWidth(),this.getHeight());
-        pony2.make(g,this.getWidth(),this.getHeight());
+        super.paintComponent(g);
+       // pony.make(g,this.getWidth(),this.getHeight());
+
+       // pony2.make(g,this.getWidth(),this.getHeight());
         for (Ball ball : balls) {
             ball.make(g, this.getWidth(), this.getHeight());
         }

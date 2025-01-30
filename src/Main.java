@@ -81,7 +81,7 @@ public class Main {
 
 
         Arena panel = new Arena();
-        Arena panel1 = new Arena();
+        //Arena panel1 = new Arena();
         //panel.setBackground(new Color(30,30,120));
 //        panel.setBackground(Color.BLUE);
 

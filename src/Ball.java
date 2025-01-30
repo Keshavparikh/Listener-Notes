@@ -4,6 +4,16 @@ public class Ball {
     private int x,y,xSpeed, ySpeed, size;
     private Color color;
 
+
+
+    public Ball(){
+        this.x=(int)(Math.random()*200)+10;
+        this.y=(int)(Math.random()*200)+10;
+        this.xSpeed=(int)(Math.random()*2)+1;
+        this.ySpeed=(int)(Math.random()*2)+1;
+        this.size=(int)(Math.random()*30)+20;
+        this.color=new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+    }
     public Ball(int x,int y,int xSpeed, int ySpeed, int size, Color color){
         this.x=x;
         this.y=y;
