@@ -80,7 +80,7 @@ public class Arena extends JPanel {
 
 //Pausing the computer
         try {
-            Thread.sleep(100);
+            Thread.sleep(10);
         }
         catch(Exception e) {
         }
