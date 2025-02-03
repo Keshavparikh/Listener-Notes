@@ -87,31 +87,39 @@ public Color getColor(){
     public void bounce(int width, int height){
         //Left
         if(x>(width-size)) {
-            xSpeed=(int)(Math.random()*2)+1;
+//            xSpeed=(int)(Math.random()*2)+1;
             xSpeed=xSpeed*-1;
+            if(ySpeed<0){
             ySpeed=(int)(Math.random()*2)+1;
-            ySpeed=ySpeed*-1;
+            ySpeed=ySpeed*-1;}
         }
         //Right
         if(x<0) {
-            xSpeed=(int)(Math.random()*2)+1;
+//            xSpeed=(int)(Math.random()*2)+1;
             xSpeed=xSpeed*-1;
-            ySpeed=(int)(Math.random()*2)+1;
+            if(ySpeed<0){
+                ySpeed=(int)(Math.random()*2)+1;
+                ySpeed=ySpeed*-1;}
+//            ySpeed=(int)(Math.random()*2)+1;
         }
         //Bottom
         if(y>(height-size)) {
-            ySpeed=(int)(Math.random()*2)+1;
+//            ySpeed=(int)(Math.random()*2)+1;
             ySpeed=ySpeed*-1;
-            xSpeed=(int)(Math.random()*2)+1;
-            xSpeed=xSpeed*-1;
+            if(xSpeed<0){
+                xSpeed=(int)(Math.random()*2)+1;
+                xSpeed=xSpeed*-1;}
+//            xSpeed=(int)(Math.random()*2)+1;
+//            xSpeed=xSpeed*-1;
 
         }
         //Top
         if(y<0) {
-            ySpeed=(int)(Math.random()*2)+1;
+           // ySpeed=(int)(Math.random()*2)+1;
             ySpeed=ySpeed*-1;
+            if(xSpeed<0){
             xSpeed=(int)(Math.random()*2)+1;
-            //xSpeed=xSpeed*-1;
+            xSpeed=xSpeed*-1;}
         }
     }
 }
