@@ -7,8 +7,8 @@ public class Ball {
 
 
     public Ball(){
-        this.x=(int)(Math.random()*200)+10;
-        this.y=(int)(Math.random()*200)+10;
+        this.x=(int)(Math.random()*400);
+        this.y=(int)(Math.random()*400);
         this.xSpeed=(int)(Math.random()*2)+1;
         this.ySpeed=(int)(Math.random()*2)+1;
         this.size=(int)(Math.random()*30)+20;
@@ -99,7 +99,8 @@ public Color getColor(){
             xSpeed=xSpeed*-1;
             if(ySpeed<0){
                 ySpeed=(int)(Math.random()*2)+1;
-                ySpeed=ySpeed*-1;}
+                ySpeed=ySpeed*-1;
+            }
 //            ySpeed=(int)(Math.random()*2)+1;
         }
         //Bottom
@@ -119,7 +120,16 @@ public Color getColor(){
             ySpeed=ySpeed*-1;
             if(xSpeed<0){
             xSpeed=(int)(Math.random()*2)+1;
-            xSpeed=xSpeed*-1;}
+            xSpeed=xSpeed*-1;
+            }
         }
+
+
+    }
+    public boolean touching (Ball b){
+        int distX = this.x - b.x;
+        int distY = this.y - b.y;
+        double dist = Math.sqrt(distX*distX+distY*distY);
+        return dist < (this.size / 2 + b.size/2);
     }
 }

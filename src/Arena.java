@@ -36,7 +36,7 @@ public class Arena extends JPanel {
 
     public Arena(){
             setBackground(Color.blue);
-        for(int i =0; i<100; i++){
+        for(int i =0; i<20; i++){
             balls.add(new Ball());
             //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED));
 
@@ -50,9 +50,30 @@ public class Arena extends JPanel {
         super.paintComponent(g);
        // pony.make(g,this.getWidth(),this.getHeight());
 
-       // pony2.make(g,this.getWidth(),this.getHeight());
+        for (int i = 0; i < balls.size(); i++) {
+            for (int j = i + 1; j < balls.size(); j++) {
+                Ball ball1 = balls.get(i); // First ball in the pair
+                Ball ball2 = balls.get(j); // Second ball in the pair
+
+                // If the balls are colliding, swap their speeds
+                if (ball1.touching(ball2)) {
+                    int tempXSpeed = ball1.getXSpeed(); // Save ball1's xSpeed temporarily
+                    int tempYSpeed = ball1.getYSpeed(); // Save ball1's ySpeed temporarily
+
+                    // Swap the speeds between the two balls
+                    ball1.setXSpeed(ball2.getXSpeed());
+                    ball1.setYSpeed(ball2.getYSpeed());
+                    ball2.setXSpeed(tempXSpeed);
+                    ball2.setYSpeed(tempYSpeed);
+                }
+            }
+        }
+
+
+        // pony2.make(g,this.getWidth(),this.getHeight());
         for (Ball ball : balls) {
             ball.make(g, this.getWidth(), this.getHeight());
+
         }
         /*a.make(g,this.getWidth(),this.getHeight());
         b.make(g,this.getWidth(),this.getHeight());
