@@ -30,7 +30,7 @@ public class Arena extends JPanel {
     Ball t = new Ball(0, 100, 5, 32,30, Color.RED);
     Ball u = new Ball(0, 100, 53, 32,30, Color.RED);
      */
-
+//
     ArrayList<Ball> balls = new ArrayList<>();
 
 

@@ -122,7 +122,7 @@ public Color getColor(){
             xSpeed=(int)(Math.random()*2)+1;
             xSpeed=xSpeed*-1;
             }
-        }
+        }//
 
 
     }
