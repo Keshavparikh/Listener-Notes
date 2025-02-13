@@ -1,14 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 
 public class Arena extends JPanel {
 
-    Ball pony = new Ball(0, 100, 5, 3,30, Color.RED);
+    /*Ball pony = new Ball(0, 100, 5, 3,30, Color.RED);
     //private int ballX = 0;
     //private int ballY = 0;
-    Ball pony2 = new Ball(10, 10, 1, 5, 23, Color.PINK);
+    //Ball pony2 = new Ball(10, 10, 1, 5, 23, Color.PINK);
     /*Ball a = new Ball(0, 100, 7, 1,3, Color.RED);
     Ball b = new Ball(0, 100, 3, 3,9, Color.RED);
     Ball c = new Ball(0, 100, 45, 23,3, Color.RED);
@@ -30,17 +32,41 @@ public class Arena extends JPanel {
     Ball t = new Ball(0, 100, 5, 32,30, Color.RED);
     Ball u = new Ball(0, 100, 53, 32,30, Color.RED);
      */
-//
     ArrayList<Ball> balls = new ArrayList<>();
-
+    private Ball me = new Ball(10,9,0,0,40,Color.red);
 
     public Arena(){
             setBackground(Color.blue);
-        for(int i =0; i<20; i++){
-            balls.add(new Ball());
-            //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED));
+            setFocusable(true);
+            requestFocus();
+        //for(int i =0; i<20; i++){
+            //balls.add(new Ball());
+            //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED))
+        //}
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+                if(e.getKeyCode()==68){
+                    me.setX(me.getX()+4);
+                }else {
+                    if (e.getKeyCode() == 65) {
+                        me.setX(me.getX() - 4);
+                    }
+                    else{
+                        if (e.getKeyCode() == 87) {
+                            me.setY(me.getY() - 4);
+                        }
+                        else{
+                            if (e.getKeyCode() == 83) {
+                                me.setY(me.getY() + 4);
+                            }
+                        }
+                    }
+                }
 
-        }
+            }
+        });
 
     }
 
@@ -48,19 +74,19 @@ public class Arena extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        me.make(g, me.getX(), me.getY());
        // pony.make(g,this.getWidth(),this.getHeight());
 
         for (int i = 0; i < balls.size(); i++) {
             for (int j = i + 1; j < balls.size(); j++) {
-                Ball ball1 = balls.get(i); // First ball in the pair
-                Ball ball2 = balls.get(j); // Second ball in the pair
+                Ball ball1 = balls.get(i);
+                Ball ball2 = balls.get(j);
 
-                // If the balls are colliding, swap their speeds
                 if (ball1.touching(ball2)) {
-                    int tempXSpeed = ball1.getXSpeed(); // Save ball1's xSpeed temporarily
-                    int tempYSpeed = ball1.getYSpeed(); // Save ball1's ySpeed temporarily
+                    int tempXSpeed = ball1.getXSpeed();
+                    int tempYSpeed = ball1.getYSpeed();
 
-                    // Swap the speeds between the two balls
+
                     ball1.setXSpeed(ball2.getXSpeed());
                     ball1.setYSpeed(ball2.getYSpeed());
                     ball2.setXSpeed(tempXSpeed);
