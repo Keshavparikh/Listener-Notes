@@ -41,7 +41,7 @@ public class Arena extends JPanel {
             requestFocus();
         //for(int i =0; i<20; i++){
             //balls.add(new Ball());
-            //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED))
+     //       //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED))
         //}
         addKeyListener(new KeyAdapter() {
             @Override

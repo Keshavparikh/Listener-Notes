@@ -112,7 +112,7 @@ public Color getColor(){
                 xSpeed=xSpeed*-1;}
 //            xSpeed=(int)(Math.random()*2)+1;
 //            xSpeed=xSpeed*-1;
-
+//
         }
         //Top
         if(y<0) {
