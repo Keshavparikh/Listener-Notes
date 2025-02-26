@@ -1,9 +1,10 @@
+import javax.swing.*;
 import java.awt.*;
 public class Ball {
 
     private int x,y,xSpeed, ySpeed, size;
     private Color color;
-
+    private ImageIcon img = new ImageIcon("b.jpeg");
 
 
     public Ball(){
@@ -78,7 +79,8 @@ public Color getColor(){
 
     public void draw(Graphics g){
         g.setColor(color);
-        g.fillOval(x,y,size,size);
+        //.fillOval(x,y,size,size);
+        g.drawImage(img.getImage(),x,y,size,size,null);
     }
     public void move(){
         x+=xSpeed;

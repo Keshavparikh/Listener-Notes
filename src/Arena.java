@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 
@@ -43,29 +45,37 @@ public class Arena extends JPanel {
             //balls.add(new Ball());
      //       //balls.add(new Ball(0, 100, 2, ((int)(Math.random()*20)), (int)(Math.random()*20), Color.RED))
         //}
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println(e.getX() + "," + e.getY());
+                if(e.getY()<100){
+                    setBackground(Color.RED);
+                }
+            }
+        });
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==68){
                     me.setX(me.getX()+4);
-                }else {
-                    if (e.getKeyCode() == 65) {
-                        me.setX(me.getX() - 4);
-                    }
-                    else{
-                        if (e.getKeyCode() == 87) {
-                            me.setY(me.getY() - 4);
-                        }
-                        else{
-                            if (e.getKeyCode() == 83) {
-                                me.setY(me.getY() + 4);
-                            }
-                        }
-                    }
                 }
 
-            }
+                if (e.getKeyCode() == 65) {
+                        me.setX(me.getX() - 4);
+                    }
+
+                if (e.getKeyCode() == 87) {
+                            me.setY(me.getY() - 4);
+                        }
+                if (e.getKeyCode() == 83) {
+                                me.setY(me.getY() + 4);
+                            }
+
+                }
+
         });
 
     }

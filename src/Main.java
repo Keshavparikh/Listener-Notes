@@ -80,11 +80,11 @@ public class Main {
         JFrame frame = new JFrame();
         frame.setSize(400,400);
 
-//
+
         Arena panel = new Arena();
         //Arena panel1 = new Arena();
         //panel.setBackground(new Color(30,30,120));
-//        panel.setBackground(Color.BLUE);
+        //panel.setBackground(Color.BLUE);
 
 
         frame.add(panel);
