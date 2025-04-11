@@ -90,7 +90,6 @@ public class Main {
         frame.add(panel);
         //frame.add(panel);
 
-
         frame.setVisible(true);
 
 

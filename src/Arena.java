@@ -50,9 +50,20 @@ public class Arena extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 System.out.println(e.getX() + "," + e.getY());
-                if(e.getY()<100){
-                    setBackground(Color.RED);
+
+                if(e.getY()<100) {
+
+
+                    setBackground(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) Math.random() * 255));
+
+
+                    //setBackground(Color.RED);
+
+
                 }
+               // if (e.getY() > 100) {
+                 //   setBackground(Color.BLUE);
+              //  }
             }
         });
         addKeyListener(new KeyAdapter() {
